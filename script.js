@@ -116,11 +116,11 @@ form.addEventListener("submit",(e)=>{
 			page : page.value,
 			read : false,
 		})
-		pop.classList.remove("pop-up-active");
-		overlay.classList.remove("overlay-active")
-		name.value = "";
-		author.value = "";
-		page.value = "";
+	pop.classList.remove("pop-up-active");
+	overlay.classList.remove("overlay-active")
+	name.value = "";
+	author.value = "";
+	page.value = "";
 	}
 save();
 render();
