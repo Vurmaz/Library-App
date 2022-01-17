@@ -29,15 +29,10 @@ picture {
 *{
 	font-family: 'Shadows Into Light', cursive;
 }
-.bodi {
+.body {
     line-height: 1.5;
     min-height: 100vh;
  	background-color: var(--cream);
-}
-img,
-picture {
-    max-width: 100%;
-    display: block;
 }
 header{
 	background-color: var(--green);
@@ -152,7 +147,7 @@ footer {
 	font-size: 20px;
 	font-family: 'Comforter', cursive;
 }
-.boo{
+.button-div{
 	padding: 2rem;
 	display: flex;
 	justify-content: center;
