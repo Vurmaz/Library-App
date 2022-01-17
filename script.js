@@ -1,56 +1,56 @@
-const addBookBtn = document.querySelector("#ADD_BTN");
-const container = document.querySelector(".holder");
-const pop = document.querySelector(".pop-up");
-const overlay = document.querySelector(".overlay");
+const addBookBtn = document.querySelector("#ADD_BTN")
+const container = document.querySelector(".holder")
+const pop = document.querySelector(".pop-up")
+const overlay = document.querySelector(".overlay")
 const name = document.querySelector("#NAME");
-const author = document.querySelector("#AUTHOR");
+const author = document.querySelector("#AUTHOR")
 const page = document.querySelector("#PAGE");
 const submit = document.querySelector("#SUBMİT")
 const form = document.querySelector("form")
-const body = document.querySelector(".bodi");
+const body = document.querySelector(".bodi")
 
-let STORAGE_LİBRARY = "library.storage";
-let STORAGE_BTN_COLOR = "library.color";
+let STORAGE_LİBRARY = "library.storage"
+let STORAGE_BTN_COLOR = "library.color"
 
-let library = JSON.parse(localStorage.getItem(STORAGE_LİBRARY)) || [] ;
+let library = JSON.parse(localStorage.getItem(STORAGE_LİBRARY)) || [] 
 let read = localStorage.getItem(STORAGE_BTN_COLOR)
 
 function render () {
-clearElement(container);
+clearElement(container)
 library.forEach((e)=>{
-const book = document.createElement("div");
-book.classList.add("books");
-book.dataset.listId = e.id;
+const book = document.createElement("div")
+book.classList.add("books")
+book.dataset.listId = e.id
 
-const bookName = document.createElement("div");
+const bookName = document.createElement("div")
 bookName.textContent = `${e.name}`
 
-const labelName = document.createElement("label");
-labelName.textContent = "Book Name";
+const labelName = document.createElement("label")
+labelName.textContent = "Book Name"
 labelName.classList.add("book-label")
 
-const authorName = document.createElement("div");
+const authorName = document.createElement("div")
 authorName.textContent = `${e.author}`
 
-const labelAuthor = document.createElement("label");
-labelAuthor.textContent = "Author Name";
-labelAuthor.classList.add("book-label");
+const labelAuthor = document.createElement("label")
+labelAuthor.textContent = "Author Name"
+labelAuthor.classList.add("book-label")
 
-const totalPage = document.createElement("div");
-totalPage.textContent = `${e.page}`;
+const totalPage = document.createElement("div")
+totalPage.textContent = `${e.page}`
 
-const labelPage = document.createElement("label");
-labelPage.textContent = "Total Page";
-labelPage.classList.add("book-label");
+const labelPage = document.createElement("label")
+labelPage.textContent = "Total Page"
+labelPage.classList.add("book-label")
 
-const bookRead = document.createElement("button");
+const bookRead = document.createElement("button")
 bookRead.classList.add('btn-books')
 bookRead.innerText = 'Not Read'
 check(book,bookRead)
 
-const removeBtn = document.createElement("button");
+const removeBtn = document.createElement("button")
 removeBtn.classList.add('btn-books')
-removeBtn.textContent = "REMOVE";
+removeBtn.textContent = "REMOVE"
 
 container.appendChild(book);
 book.appendChild(labelName)
@@ -65,15 +65,15 @@ save()
 bookReadHandle(book,bookRead)
 
 removeBtn.addEventListener("click",()=>{
-	let removingItem = library.findIndex(item=>item.id === book.dataset.listId);
-	container.removeChild(removeBtn.parentNode);
-	library.splice(removingItem,removingItem + 1);
+	let removingItem = library.findIndex(item=>item.id === book.dataset.listId)
+	container.removeChild(removeBtn.parentNode)
+	library.splice(removingItem,removingItem + 1)
 	save()
 })
 })
 }
 function save() {
-	localStorage.setItem(STORAGE_LİBRARY,JSON.stringify(library));
+	localStorage.setItem(STORAGE_LİBRARY,JSON.stringify(library))
 }
 function clearElement(elem) {
 while(elem.firstChild){
@@ -118,18 +118,18 @@ form.addEventListener("submit",(e)=>{
 		})
 	pop.classList.remove("pop-up-active");
 	overlay.classList.remove("overlay-active")
-	name.value = "";
-	author.value = "";
-	page.value = "";
+	name.value = ""
+	author.value = ""
+	page.value = ""
 	}
-save();
-render();
+save()
+render()
 })
 window.addEventListener("load",()=>{
 	render()	
 })
 addBookBtn.addEventListener("click",()=>{
-	pop.classList.add("pop-up-active");
+	pop.classList.add("pop-up-active")
 	overlay.classList.add("overlay-active")
 	
 })

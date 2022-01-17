@@ -215,8 +215,7 @@ footer {
 
 @media(min-width: 0px) and (max-width: 480px){
 	.forms{
-		width: 18rem;
-
+		width: 18.5rem;
 	}
 	.addBook{
 		font-size: 2.4rem;
