@@ -43,13 +43,7 @@ header h1 {
 h2 {
   color: var(--white);
 }
-footer {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  height: 10vh;
-}
+
 .forms {
   display: flex;
   flex-direction: column;
@@ -140,8 +134,8 @@ footer {
   z-index: 1;
   border: 3px solid var(--coral);
   color: white;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
+
 .books div {
   font-size: 1.6rem;
   text-align: center;
@@ -208,6 +202,33 @@ footer {
 #SUBMİT:hover {
   background-color: var(--green);
   color: black;
+}
+footer {
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 7vh;
+  background-color: var(--darkblue);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
+  color: white;
+  align-items: center;
+}
+svg {
+  width: 5vh;
+  height: 5vh;
+  fill: white;
+  transition: fill 700ms ease-in-out;
+  cursor: pointer;
+}
+svg:hover {
+  fill: var(--green);
+}
+footer p {
+  margin-top: 1rem;
 }
 
 @keyframes back-in {
