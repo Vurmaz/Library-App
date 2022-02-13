@@ -221,7 +221,7 @@ svg {
   width: 5vh;
   height: 5vh;
   fill: white;
-  transition: fill 700ms ease-in-out;
+  transition: fill 600ms ease-in-out;
   cursor: pointer;
 }
 svg:hover {
