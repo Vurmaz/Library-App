@@ -43,6 +43,10 @@ const labelPage = document.createElement("label")
 labelPage.textContent = "Total Page"
 labelPage.classList.add("book-label")
 
+const btnDiv = document.createElement('div')
+btnDiv.classList.add('btn-div')
+
+
 const bookRead = document.createElement("button")
 bookRead.classList.add('btn-books')
 bookRead.innerText = 'Not Read'
@@ -59,14 +63,15 @@ book.appendChild(labelAuthor)
 book.appendChild(authorName)
 book.appendChild(labelPage)
 book.appendChild(totalPage)
-book.appendChild(bookRead)
-book.appendChild(removeBtn)
+book.appendChild(btnDiv)
+btnDiv.appendChild(bookRead)
+btnDiv.appendChild(removeBtn)
 save()
 bookReadHandle(book,bookRead)
 
-removeBtn.addEventListener("click",()=>{
-	let removingItem = library.findIndex(item=>item.id === book.dataset.listId)
-	container.removeChild(removeBtn.parentNode)
+removeBtn.addEventListener("click", () => {
+	let removingItem = library.findIndex((item) => item.id === book.dataset.listId)
+	container.removeChild(removeBtn.parentNode.parentNode)
 	library.splice(removingItem,removingItem + 1)
 	save()
 })
@@ -81,16 +86,16 @@ while(elem.firstChild){
 }
 };
 function bookReadHandle(book,bookRead) {
-	bookRead.addEventListener("click",()=>{
-		library.forEach((item)=>{
-			if(item.id == book.dataset.listId){
+	bookRead.addEventListener("click", () => {
+		library.forEach((item) => {
+			if(item.id == book.dataset.listId) {
 			item.read ? item.read = false : item.read = true
 			check(book,bookRead)
 			}
 		})
 	})}
 function check(book,bookRead) {
-	library.forEach((item)=>{
+	library.forEach((item) => {
 		if(item.id == book.dataset.listId){
 			if (item.read === false) {
 			bookRead.innerText = "Not Read";
@@ -106,7 +111,7 @@ function check(book,bookRead) {
 			save()	
 		})
 	}
-form.addEventListener("submit",(e)=>{
+form.addEventListener("submit", (e) => {
 	e.preventDefault();
 	if (name.value.length > 0 && author.value.length > 0 && page.value > 0 ) {
 		library.push({
@@ -125,10 +130,10 @@ form.addEventListener("submit",(e)=>{
 save()
 render()
 })
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 	render()	
 })
-addBookBtn.addEventListener("click",()=>{
+addBookBtn.addEventListener("click", () => {
 	pop.classList.add("pop-up-active")
 	overlay.classList.add("overlay-active")
 	
